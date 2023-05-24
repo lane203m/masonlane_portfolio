@@ -21,7 +21,6 @@ module.exports = {
       {
         enforce: "pre",
         test: /\.js$/,
-        loader: "source-map-loader",
         use: {
           loader: 'babel-loader',
           options:{
@@ -45,13 +44,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.(sass|scss|css)$/,
-        use: ['style-loader','css-loader','sass-loader']
-      },
-      {
           test: /\.(svg|eot|woff|woff2|ttf)$/,
           use: ['file-loader']
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif|jp2|webp)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]'
+        }
+      },
     ],
   },
   plugins: [
@@ -61,6 +63,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "./src/yourfile.css",
     }),
-    new htmlWebpack()
+    //new htmlWebpack()
   ],
 };

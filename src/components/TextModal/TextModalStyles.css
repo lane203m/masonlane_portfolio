@@ -1,14 +1,5 @@
-
 * {
   box-sizing: border-box;
-}
-
-.bg-image {
-  /* Add the blur effect */
-  backdrop-filter: blur(8px);
-  
-  /* Full height */
-  height: 100%; 
 }
 
 

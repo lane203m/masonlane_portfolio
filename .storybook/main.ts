@@ -25,7 +25,6 @@ const config: StorybookConfig = {
       {
         enforce: "pre",
         test: /\.js$/,
-        loader: "source-map-loader",
         use: {
           loader: 'babel-loader',
           options:{
@@ -47,10 +46,6 @@ const config: StorybookConfig = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
-      },
-      {
-        test: /\.(sass|scss|css)$/,
-        use: ['style-loader','css-loader','sass-loader']
       },
       {
           test: /\.(svg|eot|woff|woff2|ttf)$/,

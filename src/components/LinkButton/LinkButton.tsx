@@ -18,7 +18,7 @@ export const LinkButton = ({
   return (
     <>
       <button className={`zoom h-100`} onClick={onClick}>
-        <FontAwesomeIcon className='fa-2xl' icon={icon ? icon : ['fas', 'notdef'] }></FontAwesomeIcon>
+        <FontAwesomeIcon className='color-off-white fa-2xl' icon={icon ? icon : ['fas', 'notdef'] }></FontAwesomeIcon>
       </button>
       
     </>

@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactNode, useState, Children, ReactElement, useEffect } from 'react';
 import { MenuButton } from '../MenuButton/MenuButton';
 import { AnimatePresence, motion } from 'framer-motion';
+import { getDimensions } from '../Utilities/Utilities'
 
 export interface HeaderBarProps {
   label?: string; 
@@ -16,24 +17,9 @@ export const HeaderBar = ({
 
   const [open, setOpen] = useState(false);
 
-  const [dimensions, setDimensions] = useState({ 
-    height: window.innerHeight,
-    width: window.innerWidth
-  })
+  const dimensions = getDimensions();
 
-  //https://www.pluralsight.com/guides/re-render-react-component-on-window-resize
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-    
-    }
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize);
-  })
 
   useEffect(() => {
     console.log(open)
@@ -42,7 +28,7 @@ export const HeaderBar = ({
 
   return (
     <>
-      <div className='row background-color-half-dark d-flex justify-content-between pt-2' id={'headerWidth'}>
+      <div className='position-fixed row background-color-half-dark d-flex justify-content-between px-4 pt-2 m-0 w-100' style={{zIndex:99}} id={'headerWidth'}>
         <div className='col-4' style={{display:'contents'}}><h4 className='ps-2 color-off-white'>{label}</h4></div>
         {
           dimensions.width && dimensions.width > 550 ? 

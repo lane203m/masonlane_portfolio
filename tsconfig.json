@@ -108,6 +108,7 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "src/index.tsx"
+    "src/index.tsx",
+    "src/declaration.d.ts"
   ]
 }

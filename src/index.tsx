@@ -4,6 +4,6 @@ import './custom.scss';
 
 import { App } from "./App";
 ReactDOM.render(
-  <App userName="Beveloper" lang="TypeScript" />,
+  <App userName="Mason Lane" lang="TypeScript" />,
   document.getElementById("output")
 );
