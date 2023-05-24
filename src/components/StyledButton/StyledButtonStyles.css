@@ -1,0 +1,45 @@
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0%;
+  background-color: #BEBEBE;
+  transform-origin: bottom;
+  transition: transform 0.15s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom;
+}
+
+.underline-animation-override {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-animation-override::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(1);
+  height: 2px;
+  bottom: 0;
+  left: 0%;
+  background-color: #BEBEBE;
+  transform-origin: bottom;
+  transition: transform 0.15s ease-out;
+}
+
+.underline-animation-override:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom;
+}

@@ -1,0 +1,38 @@
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+body{
+  background-color: black;
+  overflow-x: hidden;
+}
+
+button{
+  border-width: 0px;
+  background: transparent;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.color-off-white{
+  color: #BEBEBE;
+}
+
+.border-color-off-white{
+  border-color: #BEBEBE;
+}
+
+.background-color-off-white{
+  background-color: #BEBEBE;
+}
+
+.background-color-dark{
+  background-color: #1E1E1E;
+}
+
+.background-color-half-dark{
+  background-color: #1E2026;
+}
