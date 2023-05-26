@@ -2,6 +2,7 @@
   background: transparent !important;
   color: #BEBEBE !important;  
   border-bottom: transparent !important;
+  padding: 0.5rem;
 }
 
 .accordion-button::after {
@@ -17,4 +18,8 @@
 .accordion-button {
   box-shadow: none !important;
   border-bottom: transparent !important;
+}
+
+.accordion-body {
+  padding: 0.5rem;
 }

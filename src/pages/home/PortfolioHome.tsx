@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef, ReactNode, useLayoutEffect, useState } from 'react';
 import { ReactElement } from 'react';
 import { PortfolioHeader } from './PortfolioHeader/PortfolioHeader';
+import { PortfolioFooter } from './PortfolioFooter/PortfolioFooter';
 import { PortfolioContents } from './PortfolioContents/PortfolioContents';
 import { Contact } from './Contact/Contact';
 import { AboutMe } from './AboutMe/AboutMe';
@@ -31,6 +32,7 @@ export const PortfolioHome = ({
         <AboutMe></AboutMe>
         <PortfolioContents></PortfolioContents>
         <Contact></Contact>
+        <PortfolioFooter></PortfolioFooter>
       </Parallax>
       {/*<AboutMe/>*/}
       

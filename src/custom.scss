@@ -14,7 +14,7 @@ button{
 body, html {
   height: 100%;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
 }
 
 .color-off-white{
@@ -30,7 +30,19 @@ body, html {
 }
 
 .background-color-dark{
-  background-color: #1E1E1E;
+  background-color: #0B0C0F;
+}
+
+.background-color-dark-25{
+  background-color: rgb(11, 12, 15, 0.25);
+}
+
+.background-color-dark-50{
+  background-color: rgb(11, 12, 15, 0.5);
+}
+
+.background-color-dark-75{
+  background-color: rgb(11, 12, 15, 0.75);
 }
 
 .background-color-half-dark{

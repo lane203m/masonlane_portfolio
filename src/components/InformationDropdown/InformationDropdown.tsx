@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactNode } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import './InformationDropdown.css';
+import './InformationDropdown.scss';
 
 interface InformationDropdownProps {
   label?: string; 

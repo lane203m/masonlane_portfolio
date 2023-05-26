@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, Transition, SVGMotionProps, easeInOut } from "framer-motion";
+import PolygonBackground from '../../Images/PolygonBackground.png';
 
 interface MenuButtonProps {
   color?: string;
