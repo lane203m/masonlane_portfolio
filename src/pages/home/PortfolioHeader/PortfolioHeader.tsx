@@ -9,9 +9,12 @@ export const PortfolioHeader = ({
   ...props
 }: PortfolioHeaderProps): ReactElement => {
   return (
-    <HeaderBar label='Mason Lane'>
-
-      
-    </HeaderBar>
+    <div>
+      <HeaderBar label='Mason Lane'>
+        <div>
+          test
+        </div>
+      </HeaderBar>
+    </div>
   );
 };

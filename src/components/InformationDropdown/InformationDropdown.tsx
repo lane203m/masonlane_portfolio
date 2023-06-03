@@ -14,10 +14,14 @@ export const InformationDropdown = ({
   ...props
 }: InformationDropdownProps) => {
   return (
-    <Accordion defaultActiveKey="1" flush>
-      <Accordion.Item eventKey="0" className='bg-transparent'>
-        <Accordion.Header className='border-bottom' >{label}</Accordion.Header>
-        <Accordion.Body className='color-off-white'>
+    <Accordion defaultActiveKey="1">
+      <Accordion.Item eventKey="0" className='border-0 bg-transparent'>
+        <Accordion.Header>
+        <h5 className='color-off-white'>
+          {label} 
+        </h5>
+        </Accordion.Header>
+        <Accordion.Body className='border-top color-off-white'>
           {children}
         </Accordion.Body>
       </Accordion.Item>

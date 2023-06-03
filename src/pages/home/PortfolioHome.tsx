@@ -18,22 +18,34 @@ import {
   useViewportScroll
 } from "framer-motion";
 import PolygonBackground from '../../Images/PolygonBackground.png';
+import { getDimensions } from '../../components/Utilities/Utilities';
 interface PortfolioHomeProps {
 }
 
 export const PortfolioHome = ({
   ...props
 }: PortfolioHomeProps): ReactElement => {
+
+  const dimensions = getDimensions();
+
   return (
-    <>
+    <div>
       <PortfolioHeader/>
-      <img className='position-fixed' style={{filter:'blur(3px)'}} src={PolygonBackground}></img>
-      <Parallax>
+      <motion.img className='position-fixed' style={{filter:'blur(1px)'}} src={PolygonBackground}></motion.img>
+      <div className='pt-5'>
         <AboutMe></AboutMe>
+      </div>
+      <Parallax>
         <PortfolioContents></PortfolioContents>
-        <Contact></Contact>
-        <PortfolioFooter></PortfolioFooter>
+
+
+
       </Parallax>
+      <div>
+        <Contact></Contact>
+        
+        <PortfolioFooter></PortfolioFooter>
+      </div>
       {/*<AboutMe/>*/}
       
       
@@ -67,7 +79,7 @@ export const PortfolioHome = ({
       /*>
 
       </motion.img>*/}
-    </>
+    </div>
   );
 };
 
@@ -78,7 +90,6 @@ type ParallaxProps = {
 };
 
 const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
-  const prefersReducedMotion = useReducedMotion();
   const [elementTop, setElementTop] = useState(0);
   const [clientHeight, setClientHeight] = useState(0);
   const ref = useRef(null);
@@ -89,10 +100,9 @@ const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
   const final = elementTop + offset;
 
   const yRange = useTransform(scrollY, [initial, final], [offset, -offset]);
-  const y = useSpring(yRange, { stiffness: 400, damping: 90 });
+  const y = useSpring(yRange, { stiffness: 200, damping: 50 });
 
   useLayoutEffect(() => {
-    const element = ref.current;
     const onResize = () => {
       setElementTop(window.innerHeight);
       setClientHeight(window.innerHeight);
@@ -102,13 +112,8 @@ const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
     return () => window.removeEventListener("resize", onResize);
   }, [ref]);
 
-  // Don't parallax if the user has "reduced motion" enabled
-  if (prefersReducedMotion) {
-    return <>{children}</>;
-  }
-
   return (
-    <motion.div ref={ref} style={{ y }}>
+    <motion.div ref={ref} style={{ y }} className='mx-3 mx-sm-5 px-lg-5'>
       {children}
     </motion.div>
   );

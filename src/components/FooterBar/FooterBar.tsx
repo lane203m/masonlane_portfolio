@@ -28,7 +28,7 @@ export const FooterBar = ({
 
   return (
     <>
-      <div className='row background-color-half-dark d-flex justify-content-between px-4 pt-2 m-0 w-100' style={{zIndex:99}}>
+      <div className='row background-color-half-dark d-flex justify-content-between px-4 pt-2 m-0 w-100' style={{position:'absolute', zIndex:99}}>
         <div className='col-4' style={{display:'contents'}}><h4 className='ps-2 color-off-white'>{label}</h4></div>
         {
           dimensions.width && dimensions.width > 550 ? 

@@ -19,7 +19,25 @@ export const HeaderBar = ({
 
   const dimensions = getDimensions();
 
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    if(dimensions.width < 550){
+      setIsMobile(true);
+    }
+    else{
+      setIsMobile(false);
+    }
+  }, [])
 
+  useEffect(() => {
+    if(dimensions.width < 550){
+      setIsMobile(true);
+    }
+    else{
+      setIsMobile(false);
+    }
+  }, [dimensions.width])
 
   useEffect(() => {
     console.log(open)
@@ -28,7 +46,7 @@ export const HeaderBar = ({
 
   return (
     <>
-      <div className='position-fixed row background-color-half-dark d-flex justify-content-between px-4 pt-2 m-0 w-100' style={{zIndex:99}} id={'headerWidth'}>
+      <div className={`dark-box-shadow position-fixed row background-color-half-dark d-flex justify-content-between ${isMobile? 'px-1' : 'px-4'} pt-2 m-0 w-100`} style={{zIndex:99}} id={'headerWidth'}>
         <div className='col-4' style={{display:'contents'}}><h4 className='ps-2 color-off-white'>{label}</h4></div>
         {
           dimensions.width && dimensions.width > 550 ? 
@@ -43,7 +61,7 @@ export const HeaderBar = ({
           :
           <>
             <div className='p-0 col-2 pe-1'>
-              <div className='float-end pe-2' style={{width:'25px'}}>
+              <div className='float-end pe-1' style={{width:'25px'}}>
                 <MenuButton isOpen={open} strokeWidth={2.5} additionalOnClick={() => setOpen(!open)}/>
               </div>
             </div>  

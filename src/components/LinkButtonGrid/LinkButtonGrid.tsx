@@ -4,14 +4,16 @@ import './LinkButtonGrid.scss';
 
 interface LinkButtonGridProps {
   children?: ReactNode;
+  justifyCenter?: boolean
 }
 
 export const LinkButtonGrid = ({
   children,
+  justifyCenter,
   ...props
 }: LinkButtonGridProps) => {
   return (
-    <div className='row d-flex justify-content-between'>
+    <div className={`row d-flex ${justifyCenter ? 'justify-content-center':'justify-content-end'}`}>
       <div className='col-12 align-self-center' style={{width:'auto'}}>
         <div className='d-flex'>
           {React.Children?.map(
