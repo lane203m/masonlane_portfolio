@@ -33,7 +33,7 @@ export const AboutMe = ({
   }, [dimensions.width])
 
   return (
-    <div className='py-5 mt-5'>
+    <div className='py-5 mt-5' id='aboutMe'>
       <TextModal label='About Me'>
         <div className={`${isMobile ? 'px-0' : 'px-4'} text-start`}>
           <p>

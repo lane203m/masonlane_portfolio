@@ -11,7 +11,7 @@ export const Contact = ({
   ...props
 }: ContactProps): ReactElement => {
   return (
-    <div className='py-5 mb-5'>
+    <div className='py-5 mb-5' id={'contact'}>
       <TextModal label='Contact'>
         <div className='pb-4'>
           <LinkButtonGrid justifyCenter>

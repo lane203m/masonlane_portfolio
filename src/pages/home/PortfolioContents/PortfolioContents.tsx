@@ -38,7 +38,7 @@ export const PortfolioContents = ({
   }, [dimensions.width])
 
   return (
-    <div className='w-100 bg-dark dark-box-shadow px-0 pt-4'>
+    <div className='w-100 bg-dark dark-box-shadow px-0 pt-4' id='portfolio'>
       <div className='row color-off-white'> 
         <h2 className='py-2 text-center background-color-dark' style={{borderRadius:'7px'}}>My Projects</h2>
       </div>

@@ -6,6 +6,7 @@ import { PortfolioFooter } from './PortfolioFooter/PortfolioFooter';
 import { PortfolioContents } from './PortfolioContents/PortfolioContents';
 import { Contact } from './Contact/Contact';
 import { AboutMe } from './AboutMe/AboutMe';
+import { Route, useLocation } from 'react-router-dom'
 
 
 import {
@@ -31,7 +32,7 @@ export const PortfolioHome = ({
   return (
     <div>
       <PortfolioHeader/>
-      <motion.img className='position-fixed' style={{filter:'blur(1px)'}} src={PolygonBackground}></motion.img>
+      <motion.img className='position-fixed' style={{zIndex:-1, filter:'blur(1px)'}} src={PolygonBackground}></motion.img>
       <div className='pt-5'>
         <AboutMe></AboutMe>
       </div>

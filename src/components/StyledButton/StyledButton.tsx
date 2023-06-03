@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactElement } from 'react';
 import { Button } from 'react-bootstrap';
-import './StyledButtonStyles.css';
+import './StyledButtonStyles.scss';
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
