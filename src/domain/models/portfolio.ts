@@ -1,8 +1,8 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export interface IPortfolioItemData {
+  itemId?: string;
   itemName?: string;
-  itemSummary?: string;
   itemDescription?: string;
   itemImage?: string;
   itemLinks?: buttonLinkData[];

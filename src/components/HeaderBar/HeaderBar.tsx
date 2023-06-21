@@ -3,6 +3,7 @@ import { ReactNode, useState, Children, ReactElement, useEffect } from 'react';
 import { MenuButton } from '../MenuButton/MenuButton';
 import { AnimatePresence, motion } from 'framer-motion';
 import { getDimensions } from '../Utilities/Utilities'
+import { Col, Container, Row } from 'react-bootstrap';
 
 export interface HeaderBarProps {
   label?: string; 
@@ -40,9 +41,9 @@ export const HeaderBar = ({
   }, [dimensions.width])
 
   return (
-    <div className='container p-0'>
-      <div className='row justify-content-around'>
-          <div className={`col-12 dark-box-shadow position-fixed row background-color-half-dark d-flex justify-content-between px-4 pt-2 m-0`} style={{zIndex:101}} id={'headerWidth'}>
+    <Container>
+      <Row className='justify-content-around'>
+          <Col className={`col-12 border-primary border-bottom border-opacity-50 dark-box-shadow position-fixed row background-color-half-dark d-flex justify-content-between px-4 pt-2 m-0`} style={{zIndex:101}} id={'headerWidth'}>
             <div className='col-12' style={{display:'contents'}}><h4 className='ps-2 color-off-white'>{label}</h4></div>
             {
               dimensions.width && dimensions.width > 768 ? 
@@ -63,8 +64,8 @@ export const HeaderBar = ({
                 </div>  
               </>
             }
-          </div>
-          <div className='col-12 w-100 position-fixed mt-4' style={{zIndex:100}}>
+          </Col>
+          <Col xs={12} className='w-100 position-fixed mt-4' style={{zIndex:100}}>
           { dimensions.width && dimensions.width <= 768 &&
             <AnimatePresence>
               {open && 
@@ -74,16 +75,16 @@ export const HeaderBar = ({
                   animate={{ x: 10 }}
                   exit={{ x: 200 }}
                 >
-                  <div className='background-color-dark float-end pt-4 px-4'>
+                  <div className='background-color-half-dark float-end pt-4 px-4 dark-box-shadow '>
                     {React.Children?.map(
                       children as ReactElement, 
-                      (x, i) => {     
+                      (x) => {     
                         return (
-                          <div className='row py-2'>
-                            <div className='col-12 '>
+                          <Row className='py-2'>
+                            <Col xs={12}>
                               <div className='float-end'>{x}</div>
-                            </div>
-                          </div>
+                            </Col>
+                          </Row>
                           ) 
                       }
                     )}
@@ -92,8 +93,8 @@ export const HeaderBar = ({
               }
             </AnimatePresence>
           }
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
   );
 };

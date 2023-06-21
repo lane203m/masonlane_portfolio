@@ -6,8 +6,6 @@ import { PortfolioFooter } from './PortfolioFooter/PortfolioFooter';
 import { PortfolioContents } from './PortfolioContents/PortfolioContents';
 import { Contact } from './Contact/Contact';
 import { AboutMe } from './AboutMe/AboutMe';
-import { Route, useLocation } from 'react-router-dom'
-
 
 import {
   motion,
@@ -30,56 +28,23 @@ export const PortfolioHome = ({
   const dimensions = getDimensions();
 
   return (
-    <div>
-      <PortfolioHeader/>
+    <div className='overflow-hidden'>
+      <div>
+        <PortfolioHeader/>
+      </div>
+      
       <motion.img className='position-fixed' style={{zIndex:-1, filter:'blur(1px)'}} src={PolygonBackground}></motion.img>
       <div className='pt-5'>
         <AboutMe></AboutMe>
       </div>
       <Parallax>
         <PortfolioContents></PortfolioContents>
-
-
-
       </Parallax>
       <div>
         <Contact></Contact>
         
         <PortfolioFooter></PortfolioFooter>
       </div>
-      {/*<AboutMe/>*/}
-      
-      
-      
-      {/*<motion.img
-        //key={page}
-        src={PolygonBackground}
-        //custom={direction}
-        //variants={variants}
-        width={'100%'}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        transition={{
-          x: { type: "spring", stiffness: 300, damping: 30 },
-          opacity: { duration: 0.2 },
-        }}
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={1}
-        /*onDragEnd={(e, { offset, velocity }) => {
-          const swipe = swipePower(offset.x, velocity.x);
-
-          if (swipe < -swipeConfidenceThreshold) {
-            paginate(1);
-          } else if (swipe > swipeConfidenceThreshold) {
-            paginate(-1);
-          }
-        }}*/
-      
-      /*>
-
-      </motion.img>*/}
     </div>
   );
 };
@@ -114,7 +79,7 @@ const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
   }, [ref]);
 
   return (
-    <motion.div ref={ref} style={{ y }} className='mx-3 mx-sm-5 px-lg-5'>
+    <motion.div ref={ref} style={{ y }} /*className='mx-3 mx-sm-5 px-lg-5'*/>
       {children}
     </motion.div>
   );

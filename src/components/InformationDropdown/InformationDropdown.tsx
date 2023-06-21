@@ -16,12 +16,12 @@ export const InformationDropdown = ({
   return (
     <Accordion defaultActiveKey="1">
       <Accordion.Item eventKey="0" className='border-0 bg-transparent'>
-        <Accordion.Header>
-        <h5 className='color-off-white'>
+        <Accordion.Header className='border-bottom'>
+        <h6 className='color-off-white'>
           {label} 
-        </h5>
+        </h6>
         </Accordion.Header>
-        <Accordion.Body className='border-top color-off-white'>
+        <Accordion.Body className='border-0 color-off-white'>
           {children}
         </Accordion.Body>
       </Accordion.Item>

@@ -86,7 +86,7 @@ export const PortfolioFooter = ({
 
 
   return (
-    <div>
+    <div className='border-danger border-top border-opacity-50'>
       <FooterBar>
         <StyledButton key={'aboutMe'} isActive={isOnAboutMe} label={'Test Button Longer'} onClick={() => onClick(aboutMe)}/>
         <StyledButton key={'portfolio'} isActive={isOnPortfolio} label={'Test Button'} onClick={() => onClick(portfolio)}/>
