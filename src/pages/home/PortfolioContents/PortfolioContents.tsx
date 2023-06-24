@@ -54,7 +54,7 @@ export const PortfolioContents = ({
   return (
     <div className='w-100 background-color-dark dark-box-shadow px-0' id='portfolio'>
       <div className='row pb-0 px-0 m-0 color-off-white '> 
-        <h2 className='py-3 m-0 text-center background-color-half-dark border-bottom border-success'>My Projects</h2>
+        <h2 className='py-3 m-0 text-center background-color-half-dark border-bottom border-success'>My Work</h2>
       </div>
       <ContentsTableRows portfolioItems={portfolioItems} columnSize={columnSize}/>
     </div>
@@ -90,7 +90,7 @@ export const ContentsTableRows = ({
           </div>
         )
 
-        i = i+3
+        i = i+2
       }
       if(columnSize === 2){
         tempArray.push(
@@ -106,7 +106,9 @@ export const ContentsTableRows = ({
           </div>
         )
 
-        i = i+2
+        console.log(i)
+
+        i++;
       }
       if(columnSize === 1){
         tempArray.push(
@@ -116,8 +118,6 @@ export const ContentsTableRows = ({
             </div>
           </div>
         )
-
-        i++;
       }
     }
 

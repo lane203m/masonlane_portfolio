@@ -60,7 +60,6 @@ export const PortfolioHeader = ({
 
   useEffect(() => {
     window.addEventListener('scroll', function() {
-      
       const observable = {
         contactElement: document.getElementById(contact),
         portfolioElement: document.getElementById(portfolio),
@@ -73,13 +72,13 @@ export const PortfolioHeader = ({
         aboutMeElement: observable?.aboutMeElement?.getBoundingClientRect()
       }
 
-      if (pos.contactElement && (pos.contactElement.top+100 < window.innerHeight && pos.contactElement.bottom-100 >= 0)) {
+      if (pos.contactElement && (pos.contactElement.top+200 < window.innerHeight && pos.contactElement.bottom-200 >= 0)) {
         setRoutingId(contact);
 
-      } else if (pos.aboutMeElement && (pos.aboutMeElement.top+100 < window.innerHeight && pos.aboutMeElement.bottom-100 >= 0)) {
+      } else if (pos.aboutMeElement && (pos.aboutMeElement.top+200 < window.innerHeight && pos.aboutMeElement.bottom-200 >= 0)) {
        setRoutingId(aboutMe)
 
-      } else if (pos.portfolioElement && (pos.portfolioElement.top+100 < window.innerHeight && pos.portfolioElement.bottom-100 >= 0)) {
+      } else if (pos.portfolioElement && (pos.portfolioElement.top+200 < window.innerHeight && pos.portfolioElement.bottom-200 >= 0)) {
         setRoutingId(portfolio);
       }
     })
