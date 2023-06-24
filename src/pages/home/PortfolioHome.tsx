@@ -6,14 +6,12 @@ import { PortfolioFooter } from './PortfolioFooter/PortfolioFooter';
 import { PortfolioContents } from './PortfolioContents/PortfolioContents';
 import { Contact } from './Contact/Contact';
 import { AboutMe } from './AboutMe/AboutMe';
+import {useGetPortfolioData} from '../../domain/queries/getPortfolioData'
 
 import {
   motion,
-  useScroll,
   useSpring,
   useTransform,
-  MotionValue,
-  useReducedMotion,
   useViewportScroll
 } from "framer-motion";
 import PolygonBackground from '../../Images/PolygonBackground.png';
@@ -26,6 +24,7 @@ export const PortfolioHome = ({
 }: PortfolioHomeProps): ReactElement => {
 
   const dimensions = getDimensions();
+  const  portfolioData = useGetPortfolioData();
 
   return (
     <div className='overflow-hidden'>
@@ -35,14 +34,13 @@ export const PortfolioHome = ({
       
       <motion.img className='position-fixed' style={{zIndex:-1, filter:'blur(1px)'}} src={PolygonBackground}></motion.img>
       <div className='pt-5'>
-        <AboutMe></AboutMe>
+        <AboutMe aboutMeData={portfolioData?.aboutMeData}></AboutMe>
       </div>
       <Parallax>
-        <PortfolioContents></PortfolioContents>
+        <PortfolioContents portfolioItems={portfolioData?.portfolioItems} ></PortfolioContents>
       </Parallax>
       <div>
-        <Contact></Contact>
-        
+        <Contact contactData={portfolioData?.contactData}></Contact>
         <PortfolioFooter></PortfolioFooter>
       </div>
     </div>

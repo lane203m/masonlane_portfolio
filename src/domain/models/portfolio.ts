@@ -1,11 +1,17 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
+export interface IPortfolioData {
+  portfolioItems: IPortfolioItemData[];
+  aboutMeData: IAboutMeData;
+  contactData: IContactData;
+}
+
 export interface IPortfolioItemData {
   itemId?: string;
   itemName?: string;
   itemDescription?: string;
   itemImage?: string;
-  itemLinks?: buttonLinkData[];
+  itemLinks?: IButtonLinkData[];
 }
 
 export interface IAboutMeData {
@@ -13,13 +19,20 @@ export interface IAboutMeData {
 }
 
 export interface IContactData {
-  iconLinks?: buttonLinkData[];
+  iconLinks?: IButtonLinkData[];
   phoneNumber?: string;
   personalEmail?: string;
+  regionData?: IRegionData
+}
+
+export interface IRegionData {
+  city?: string,
+  province?: string,
+  country?: string,
 }
 
 
-export interface buttonLinkData {
-  redirectLink?: string;
-  fontAwesomeItemProp?: IconProp;
+export interface IButtonLinkData {
+  redirectLink: string;
+  fontAwesomeItemProp: IconProp;
 }

@@ -6,6 +6,7 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import { PortfolioHome } from './pages/home/PortfolioHome';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 library.add(fas);
 library.add(fab);
@@ -18,7 +19,9 @@ export interface HelloWorldProps {
 
 export const App = (props: HelloWorldProps) => {
   const { pathname, hash, key } = useLocation();
-
+  
+  const queryClient = new QueryClient({});
+  
   useEffect(() => {
     // if not a hash link, scroll to top
     if (hash === '') {
@@ -27,9 +30,11 @@ export const App = (props: HelloWorldProps) => {
   }, [pathname, hash, key]); // do this on route change
   
   return (
-    <Routes>
-      <Route path="/" element={<PortfolioHome/>}/>
-    </Routes>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
+        <Route path="/" element={<PortfolioHome/>}/>
+      </Routes>
+    </QueryClientProvider>
   )
 };
 

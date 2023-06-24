@@ -71,11 +71,11 @@ export const HeaderBar = ({
               {open && 
                 <motion.div
                   key="modal"
-                  initial={{ x: 200 }}
-                  animate={{ x: 10 }}
-                  exit={{ x: 200 }}
+                  initial={{ x: 300 }}
+                  animate={{ x: 30 }}
+                  exit={{ x: 300 }}
                 >
-                  <div className='background-color-half-dark float-end pt-4 px-4 dark-box-shadow '>
+                  <div className='background-color-half-dark float-end pt-4 ps-4 pe-5 dark-box-shadow '>
                     {React.Children?.map(
                       children as ReactElement, 
                       (x) => {     

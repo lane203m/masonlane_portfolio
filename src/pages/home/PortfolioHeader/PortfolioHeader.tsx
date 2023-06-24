@@ -89,9 +89,9 @@ export const PortfolioHeader = ({
   return (
     <div>
       <HeaderBar label='Mason Lane'>
-        <StyledButton key={'aboutMe'} isActive={isOnAboutMe} label={'Test Button Longer'} onClick={() => onClick(aboutMe)}/>
-        <StyledButton key={'portfolio'} isActive={isOnPortfolio} label={'Test Button'} onClick={() => onClick(portfolio)}/>
-        <StyledButton key={'contact'} isActive={isOnContact} label={'Test Button'} onClick={() => {onClick(contact);}}/>
+        <StyledButton key={'aboutMe'} isActive={isOnAboutMe} label={'About Me'} onClick={() => onClick(aboutMe)}/>
+        <StyledButton key={'portfolio'} isActive={isOnPortfolio} label={'Portfolio'} onClick={() => onClick(portfolio)}/>
+        <StyledButton key={'contact'} isActive={isOnContact} label={'Contact'} onClick={() => {onClick(contact);}}/>
       </HeaderBar>
     </div>
   );

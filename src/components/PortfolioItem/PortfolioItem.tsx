@@ -27,7 +27,7 @@ export const PortfolioItem = ({
   const dimensions = getDimensions();
   
   useEffect(() => {
-    if(dimensions.width < 768){
+    if(dimensions.width < 785){
       setIsMobile(true);
     }
     else{
@@ -36,7 +36,7 @@ export const PortfolioItem = ({
   }, [])
 
   useEffect(() => {
-    if(dimensions.width < 768){
+    if(dimensions.width < 785){
       setIsMobile(true);
     }
     else{
@@ -44,30 +44,35 @@ export const PortfolioItem = ({
     }
   }, [dimensions.width])
 
+  const onClick = ({url}:{url:string}) => {
+    window.open(url, "_blank", "noreferrer");
+  }
+  
   return (
     <div className='m-auto d-inline-block pb-4' style={{width:`${isMobile ? 'auto' : '300px'}`}}>
       <div className='container'>
         <div className='row p-0 overflow-hidden position-relative border' style={{width:`${isMobile ? 'auto' : '300px'}`, height:`${isMobile ? 'auto' : '330px'}`}} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
           <div className='col-12 p-0'>
-
-            {/*<div key={`PortfolioItemText-${portfolioItem?.itemName}`} className='p-0 w-100 position-absolute' style={{zIndex:96}}>
-              <h5 className='color-off-white background-color-dark-50 w-100 m-0 py-2 pb-1 px-2' style={{zIndex:98, boxShadow:'inset rgba(0, 0, 0, 0.75) 0px 0px 20px 0px'}}>
-                Some Text
-              </h5>
-  </div>*/}
-
               {
                 isMobile ?
-                <div className='position-absolute w-100' style={{zIndex:98, bottom:0, right:0}}>
+                <>
+                  <div key={`PortfolioItemText-${portfolioItem?.itemName}`} className='p-0 w-100 position-absolute' style={{zIndex:96}}>
+                    <h5 className='color-off-white background-color-dark-50 w-100 m-0 py-2 pb-1 px-2' style={{zIndex:98, boxShadow:'inset rgba(0, 0, 0, 0.75) 0px 0px 20px 0px'}}>
+                      {portfolioItem.itemName}
+                    </h5>
+                  </div>
+                  <div className='position-absolute w-100' style={{zIndex:98, bottom:0, right:0}}>
 
-                    <div className='w-100 background-color-dark-50' style={{boxShadow:'inset rgba(0, 0, 0, 0.75) 0px 0px 20px 0px'}}>
-                      <LinkButtonGrid justifyCenter>
-                          <LinkButton icon={["fab", "itch-io"]}></LinkButton>
-                          <LinkButton icon={["fab", "itch-io"]}></LinkButton>
-                          <LinkButton icon={["fab", "itch-io"]}></LinkButton>
-                      </LinkButtonGrid>
-                    </div>
-                </div> :
+                      <div className='w-100 background-color-dark-50' style={{boxShadow:'inset rgba(0, 0, 0, 0.75) 0px 0px 20px 0px'}}>
+                        <LinkButtonGrid justifyCenter>
+                          {portfolioItem?.itemLinks && portfolioItem.itemLinks.map((link, i) => {   
+                              return (<LinkButton key={`contact-link-${i}`} icon={link?.fontAwesomeItemProp} onClick={()=>{onClick({url: link.redirectLink})}}></LinkButton>) 
+                            }
+                          )}
+                        </LinkButtonGrid>
+                      </div>
+                  </div> 
+                </>:
                 <>
                   <AnimatePresence mode='sync'>
                     {(!isMobile && !isOpen) && 
@@ -82,7 +87,7 @@ export const PortfolioItem = ({
                             <div className='w-100 background-color-dark-75' style={{boxShadow:'inset rgba(0, 0, 0, 0.75) 0px 0px 20px 0px'}}>
                               
                               <h3 className='color-off-white w-100 m-0 py-3 px-2' style={{textAlign:'center'}}>
-                                Some Text
+                                {portfolioItem.itemName}
                               </h3>
                             </div>
                           </motion.div>
@@ -122,17 +127,18 @@ export const PortfolioItem = ({
                 width={'100%'}
                 height={'100%'}
                 style={{objectFit:'cover'}}
-                src='https://img.itch.zone/aW1nLzExODI5MjU0LmpwZw==/315x250%23c/eqFQI1.jpg'
+                src={portfolioItem.itemImage}
               />
             </AnimatePresence>
           </div>
         </div>
         <div className='row p-0 pt-2'>
           <div className='col-12 p-0'>
-            <InformationDropdown label='More Information'>Some text</InformationDropdown>
+            <InformationDropdown label='More Information'>{portfolioItem.itemDescription}</InformationDropdown>
           </div>
         </div>
       </div>
     </div>
   );
+
 };

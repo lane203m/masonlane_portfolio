@@ -3,13 +3,15 @@ import { ReactElement } from 'react';
 import { PortfolioItem } from '../../../components/PortfolioItem/PortfolioItem';
 import { getDimensions } from '../../../components/Utilities/Utilities';
 import './PortfolioContents.scss';
+import { IPortfolioItemData } from '../../../domain/models/portfolio';
 
 interface PortfolioContentsProps {
+  portfolioItems: IPortfolioItemData[],
 }
 
 
 interface TableRowsProps {
-  itemContents: any[],
+  portfolioItems: IPortfolioItemData[],
   columnSize: number,
 }
 
@@ -17,6 +19,7 @@ interface TableRowsProps {
 
 
 export const PortfolioContents = ({
+  portfolioItems,
   ...props
 }: PortfolioContentsProps): ReactElement => {
 
@@ -25,7 +28,7 @@ export const PortfolioContents = ({
   const dimensions = getDimensions();
 
   useEffect(() => {
-    if(dimensions.width < 768){
+    if(dimensions.width < 785){
       setColumnSize(1);
     }
     else if(dimensions.width < 1300){
@@ -37,7 +40,7 @@ export const PortfolioContents = ({
   }, [])
 
   useEffect(() => {
-    if(dimensions.width < 768){
+    if(dimensions.width < 785){
       setColumnSize(1);
     }
     else if(dimensions.width < 1300){
@@ -53,13 +56,13 @@ export const PortfolioContents = ({
       <div className='row pb-0 px-0 m-0 color-off-white '> 
         <h2 className='py-3 m-0 text-center background-color-half-dark border-bottom border-success'>My Projects</h2>
       </div>
-      <ContentsTableRows itemContents={[9,8,7,6,5,4,3,2,1]} columnSize={columnSize}/>
+      <ContentsTableRows portfolioItems={portfolioItems} columnSize={columnSize}/>
     </div>
   );
 };
 
 export const ContentsTableRows = ({
-  itemContents,
+  portfolioItems,
   columnSize
 }: TableRowsProps): ReactElement => {
 
@@ -67,21 +70,21 @@ export const ContentsTableRows = ({
 
   useEffect(() => {
     let tempArray = [];
-    for(var i = 0; i<itemContents.length; i++){
+    for(var i = 0; i<portfolioItems?.length; i++){
       if(columnSize === 3){
         tempArray.push(
-          <div className={`row justify-content-center py-5 px-5 m-0 rowStripe`} key={`PortfolioItemSet-${i}`}>
+          <div className={`row justify-content-center py-5 m-0 rowStripe`} key={`PortfolioItemSet-${i}`}>
             <div className={`col-auto`} key={`PortfolioItem-${i}`}>
-              <PortfolioItem portfolioItem={itemContents[i]}></PortfolioItem>
+              <PortfolioItem portfolioItem={portfolioItems[i]}></PortfolioItem>
             </div>
-            {i+1 < itemContents.length &&
-            <div className={`col-auto`} key={`PortfolioItem-${i+1}`}>
-              <PortfolioItem portfolioItem={itemContents[i+1]}></PortfolioItem>
+            {i+1 < portfolioItems.length &&
+            <div className={`col-auto px-5`} key={`PortfolioItem-${i+1}`}>
+              <PortfolioItem portfolioItem={portfolioItems[i+1]}></PortfolioItem>
             </div>
             }
-            {i+2 < itemContents.length &&
+            {i+2 < portfolioItems.length &&
             <div className={`col-auto`} key={`PortfolioItem-${i+2}`}>
-              <PortfolioItem portfolioItem={itemContents[i+2]}></PortfolioItem>
+              <PortfolioItem portfolioItem={portfolioItems[i+2]}></PortfolioItem>
             </div>
             }
           </div>
@@ -92,12 +95,12 @@ export const ContentsTableRows = ({
       if(columnSize === 2){
         tempArray.push(
           <div className={`row justify-content-center py-5 px-5 m-0 rowStripe`} key={`PortfolioItemSet-${i}`}>
-            <div className={`col-auto`} key={`PortfolioItem-${i}`}>
-              <PortfolioItem portfolioItem={itemContents[i]}></PortfolioItem>
+            <div className={`col-auto pe-4`} key={`PortfolioItem-${i}`}>
+              <PortfolioItem portfolioItem={portfolioItems[i]}></PortfolioItem>
             </div>
-            {i+1 < itemContents.length &&
-            <div className={`col-auto`} key={`PortfolioItem-${i+1}`}>
-              <PortfolioItem portfolioItem={itemContents[i+1]}></PortfolioItem>
+            {i+1 < portfolioItems.length &&
+            <div className={`col-auto ps-4`} key={`PortfolioItem-${i+1}`}>
+              <PortfolioItem portfolioItem={portfolioItems[i+1]}></PortfolioItem>
             </div>
             }
           </div>
@@ -109,7 +112,7 @@ export const ContentsTableRows = ({
         tempArray.push(
           <div className={`row justify-content-center py-5 px-0 m-0 rowStripe`} key={`PortfolioItemSet-${i}`}>
             <div className={`col-auto`} key={`PortfolioItem-${i}`}>
-              <PortfolioItem portfolioItem={itemContents[i]}></PortfolioItem>
+              <PortfolioItem portfolioItem={portfolioItems[i]}></PortfolioItem>
             </div>
           </div>
         )
@@ -119,7 +122,7 @@ export const ContentsTableRows = ({
     }
 
     setRowArray(tempArray);
-  }, [columnSize])
+  }, [columnSize, portfolioItems])
 
   return (
     <>
