@@ -21,7 +21,7 @@ export const App = (props: HelloWorldProps) => {
   const { pathname, hash, key } = useLocation();
   
   const queryClient = new QueryClient({});
-  
+
   useEffect(() => {
     // if not a hash link, scroll to top
     if (hash === '') {

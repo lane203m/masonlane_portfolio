@@ -2,17 +2,17 @@
 {
     public class ContactDataDTO
     {
-        public ButtonLinkDataDTO[] ButtonLinks { get; set; }
+        public SocialMediaLinkDataDTO[] ButtonLinks { get; set; }
         public RegionDataDTO RegionData { get; set; }
-        public String PhoneNumber { get; set; }
-        public String PersonalEmail { get; set; }
+        public String ContactNumber { get; set; }
+        public String ContactEmail { get; set; }
 
-        public ContactDataDTO(ButtonLinkDataDTO[] buttonLinks, RegionDataDTO regionData, string phoneNumber, string personalEmail)
+        public ContactDataDTO(SocialMediaLinkDataDTO[] buttonLinks, RegionDataDTO regionData, string contactNumber, string contactEmail)
         {
             ButtonLinks = buttonLinks;
             RegionData = regionData;
-            PhoneNumber = phoneNumber;
-            PersonalEmail = personalEmail;
+            ContactNumber = contactNumber;
+            ContactEmail = contactEmail;
         }
     }
 }

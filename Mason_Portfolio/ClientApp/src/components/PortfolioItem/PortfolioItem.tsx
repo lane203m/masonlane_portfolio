@@ -7,6 +7,7 @@ import { InformationDropdown } from '../InformationDropdown/InformationDropdown'
 
 import { LinkButton } from '../LinkButton/LinkButton';
 import { getDimensions } from '../Utilities/Utilities'
+import ReactMarkdown from 'react-markdown';
 
 interface PortfolioItemProps {
   portfolioItem: IPortfolioItemData
@@ -27,7 +28,7 @@ export const PortfolioItem = ({
   const dimensions = getDimensions();
   
   useEffect(() => {
-    if(dimensions.width < 785){
+    if(dimensions.width < 768){
       setIsMobile(true);
     }
     else{
@@ -36,7 +37,7 @@ export const PortfolioItem = ({
   }, [])
 
   useEffect(() => {
-    if(dimensions.width < 785){
+    if(dimensions.width < 768){
       setIsMobile(true);
     }
     else{
@@ -52,7 +53,7 @@ export const PortfolioItem = ({
     <div className='m-auto d-inline-block pb-4' style={{width:`${isMobile ? 'auto' : '300px'}`}}>
       <div className='container'>
         <div className='row p-0 overflow-hidden position-relative border' style={{width:`${isMobile ? 'auto' : '300px'}`, height:`${isMobile ? 'auto' : '330px'}`}} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-          <div className='col-12 p-0'>
+          <div className='col-12 p-0' style={isMobile ? {width: '100%', height: '51vw', minHeight: '300px'} : {}} >
               {
                 isMobile ?
                 <>
@@ -128,14 +129,16 @@ export const PortfolioItem = ({
                 width={'100%'}
                 height={'100%'}
                 style={{objectFit:'cover'}}
-                src={portfolioItem.itemImage}
+                src={`data:image/jpeg;base64,${portfolioItem.itemImage}`}
               />
             </AnimatePresence>
           </div>
         </div>
         <div className='row p-0 pt-2'>
           <div className='col-12 p-0'>
-            <InformationDropdown label='More Information'>{portfolioItem.itemDescription}</InformationDropdown>
+            <InformationDropdown label='More Information'>
+              <ReactMarkdown>{`${portfolioItem.itemDescription}`}</ReactMarkdown>
+            </InformationDropdown>
           </div>
         </div>
       </div>

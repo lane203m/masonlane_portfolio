@@ -28,7 +28,7 @@ export const PortfolioContents = ({
   const dimensions = getDimensions();
 
   useEffect(() => {
-    if(dimensions.width < 785){
+    if(dimensions.width < 768){
       setColumnSize(1);
     }
     else if(dimensions.width < 1300){
@@ -40,7 +40,7 @@ export const PortfolioContents = ({
   }, [])
 
   useEffect(() => {
-    if(dimensions.width < 785){
+    if(dimensions.width < 768){
       setColumnSize(1);
     }
     else if(dimensions.width < 1300){
@@ -94,7 +94,7 @@ export const ContentsTableRows = ({
       }
       if(columnSize === 2){
         tempArray.push(
-          <div className={`row justify-content-center py-5 px-5 m-0 rowStripe`} key={`PortfolioItemSet-${i}`}>
+          <div className={`row justify-content-center py-5 m-0 rowStripe`} key={`PortfolioItemSet-${i}`}>
             <div className={`col-auto pe-4`} key={`PortfolioItem-${i}`}>
               <PortfolioItem portfolioItem={portfolioItems[i]}></PortfolioItem>
             </div>

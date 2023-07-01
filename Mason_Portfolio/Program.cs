@@ -1,4 +1,11 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Mason_Portfolio.Data;
+using MySqlConnector;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Mason_PortfolioContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Mason_PortfolioContext") ?? throw new InvalidOperationException("Connection string 'Mason_PortfolioContext' not found.")));
 
 // Add services to the container.
 
@@ -8,6 +15,9 @@ builder.Services.AddSpaStaticFiles(configuration =>
 {
     configuration.RootPath = "ClientApp/build";
 });
+
+builder.Services.AddTransient<MySqlConnection>(_ =>
+    new MySqlConnection(builder.Configuration.GetConnectionString("Mason_PortfolioContext")));
 
 builder.Services.AddSwaggerDocument(configure => configure.Title = "Portfolio API");
 
