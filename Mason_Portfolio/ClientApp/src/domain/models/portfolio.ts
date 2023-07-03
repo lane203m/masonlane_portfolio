@@ -20,8 +20,8 @@ export interface IAboutMeData {
 
 export interface IContactData {
   buttonLinks?: IButtonLinkData[];
-  phoneNumber?: string;
-  personalEmail?: string;
+  contactNumber?: string;
+  contactEmail?: string;
   regionData?: IRegionData
 }
 

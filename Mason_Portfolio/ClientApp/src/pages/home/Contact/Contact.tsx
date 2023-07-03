@@ -30,8 +30,8 @@ export const Contact = ({
             )}
           </LinkButtonGrid>
         </div>
-        <p>{contactData?.personalEmail}</p>
-        <p>{contactData?.phoneNumber}</p>
+        <p>{contactData?.contactEmail}</p>
+        <p>{contactData?.contactNumber}</p>
         <p>{contactData?.regionData?.city}, {contactData?.regionData?.province}, {contactData?.regionData?.country}</p>
       </TextModal>
     </div>
