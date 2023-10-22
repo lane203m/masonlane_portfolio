@@ -10,14 +10,23 @@ interface LinkButtonProps {
   icon?: IconProp;
 }
 
+
+
 export const LinkButton = ({
   onClick,
   icon,
   ...props
 }: LinkButtonProps): ReactElement => {
+
+  const onAuxClick = (event: any) =>  {
+    if(event.button === 0 || event.button === 1) {
+      onClick && onClick();
+    }
+  }
+
   return (
     <>
-      <button className={`zoom h-100`} onClick={onClick}>
+      <button className={`zoom h-100`} onMouseDown={onAuxClick}>
         <FontAwesomeIcon className='color-off-white fa-2xl' icon={icon ? icon : ['fas', 'notdef'] }></FontAwesomeIcon>
       </button>
       

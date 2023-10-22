@@ -52,7 +52,7 @@ export const PortfolioItem = ({
   return (
     <div className='m-auto d-inline-block pb-4' style={{width:`${isMobile ? 'auto' : '300px'}`}}>
       <div className='container'>
-        <div className='row p-0 overflow-hidden position-relative border' style={{width:`${isMobile ? 'auto' : '300px'}`, height:`${isMobile ? 'auto' : '330px'}`}} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+        <div className='row p-0 overflow-hidden position-relative border' style={{width:`${isMobile ? 'auto' : '300px'}`, height:`${isMobile ? 'auto' : '330px'}`}} onFocus={() => setIsOpen(true)} onBlur={() => setIsOpen(false)} onTouchStart={() => setIsOpen(true)} onTouchEnd={() => setIsOpen(false)} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
           <div className='col-12 p-0' style={isMobile ? {width: '100%', height: '51vw', minHeight: '300px'} : {}} >
               {
                 isMobile ?
@@ -120,7 +120,10 @@ export const PortfolioItem = ({
                 </>
               }
             <AnimatePresence mode='sync'>
-              <motion.img 
+              <motion.img
+                onContextMenu={(e: any) => {
+                    e.preventDefault()
+                }}
                 transition={transition}
                 animate={{scale: isOpen ? 1.2 : 1, transition: { duration: 0.3 }, filter: `${isOpen ? 'blur(1px)' : 'blur(0px)'}`}}
                 initial={{ scale: 1, filter: 'blur(0px)' }}

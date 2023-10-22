@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cc7b2f2d.css",
+    "main.js": "/static/js/main.053e12bf.js",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/PolygonBackground.png": "/static/media/PolygonBackground.7f2d038e4175a383d628.png",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "service-worker.js": "/service-worker.js",
+    "static/media/LogoML_M.png": "/static/media/LogoML_M.5fa3386d939e129c220e.png",
+    "static/media/LogoML_L.png": "/static/media/LogoML_L.da15ff182974fecb825a.png",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/LogoML_B.png": "/static/media/LogoML_B.c2bdc2ea73289cc66834.png",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "index.html": "/index.html",
+    "main.cc7b2f2d.css.map": "/static/css/main.cc7b2f2d.css.map",
+    "main.053e12bf.js.map": "/static/js/main.053e12bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc7b2f2d.css",
+    "static/js/main.053e12bf.js"
+  ]
+}

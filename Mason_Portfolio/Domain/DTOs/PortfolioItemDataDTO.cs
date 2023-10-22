@@ -9,12 +9,15 @@ namespace Mason_Portfolio.Domain.DTOs
         [Required] public Byte[] ItemImage { get; set; }
         public SocialMediaLinkDataDTO[] ItemLinks { get; set; }
 
-        public PortfolioItemDataDTO(string itemName, string itemDescription, byte[] itemImage, SocialMediaLinkDataDTO[] itemLinks)
+        [Required] public Int32 ItemPriority { get; set;}
+
+        public PortfolioItemDataDTO(string itemName, string itemDescription, byte[] itemImage, SocialMediaLinkDataDTO[] itemLinks, int itemPriority)
         {
             ItemName = itemName;
             ItemDescription = itemDescription;
             ItemImage = itemImage;
             ItemLinks = itemLinks;
+            ItemPriority = itemPriority;
         }
     }
 }

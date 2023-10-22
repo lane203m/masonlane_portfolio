@@ -39,9 +39,8 @@ export const AboutMe = ({
   return (
     <div className='py-5 mt-5' id='aboutMe'>
       <TextModal label='About Me'>
-        <div className={`${isMobile ? 'px-0' : 'px-4'} text-start`}>
+        <div className={`${isMobile ? 'px-3' : 'px-4'} text-start`}>
           <ReactMarkdown>{`${aboutMeData?.aboutMeText}`}</ReactMarkdown>
-          
         </div>
       </TextModal>
     </div>

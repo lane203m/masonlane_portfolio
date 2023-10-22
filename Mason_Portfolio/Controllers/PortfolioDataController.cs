@@ -97,6 +97,7 @@ namespace Mason_Portfolio.Controllers
                 var Name = portfolioItemsReader.GetValue(1).ToString();
                 var DescriptionMdFileSystemLocation = portfolioItemsReader.GetValue(2).ToString();
                 var ImageFileSystemLocation = portfolioItemsReader.GetValue(3).ToString();
+                var ItemPriority = portfolioItemsReader.GetValue(4).ToString();
                 string description = System.IO.File.ReadAllText(Path.Combine(rootPath, "../" + DescriptionMdFileSystemLocation));
                 Byte[] image = System.IO.File.ReadAllBytes(Path.Combine(rootPath, "../" + ImageFileSystemLocation));
 
@@ -104,11 +105,12 @@ namespace Mason_Portfolio.Controllers
                 List<SocialMediaLinkDataDTO> portfolioSocials = socialMediaLinks.FindAll(social => social.ParentId == Int32.Parse(id));
 
 
-                portfolioItems.Add(new PortfolioItemDataDTO(Name, description, image, portfolioSocials.ToArray()));
+
+                portfolioItems.Add(new PortfolioItemDataDTO(Name, description, image, portfolioSocials.ToArray(), Int32.Parse(ItemPriority)));
             }
 
 
-            PortfolioDataDTO item = new PortfolioDataDTO(portfolioItems.ToArray(), aboutMe, contactData);
+            PortfolioDataDTO item = new PortfolioDataDTO(portfolioItems.OrderBy(d => d.ItemPriority).ToArray(), aboutMe, contactData);
 
             _connection.Close();
 
